@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.HavaDurumu">
+
+    <StackLayout Padding="20">
+        <!-- Şehir Girme Alanı -->
+        <Entry x:Name="textBox"
+               Placeholder="Şehir adı girin"
+               Margin="0,10,0,10"
+               HorizontalOptions="FillAndExpand" />
+
+        <!-- Ekle Butonu -->
+        <Button Text="Hava Durumu Ekle"
+                Clicked="Button_Clicked"
+                BackgroundColor="#6E557C"
+                TextColor="White"
+                FontSize="18"
+                CornerRadius="10" />
+
+        <!-- Görsellerin Ekleneceği Alan -->
+        <StackLayout x:Name="imageStackLayout"
+                     Orientation="Vertical"
+                     Spacing="10"
+                     Margin="0,20,0,0" />
+    </StackLayout>
+
+</ContentPage>

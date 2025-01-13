@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "538118406446",
+    "project_id": "mauiappdeneme-14ef4",
+    "storage_bucket": "mauiappdeneme-14ef4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538118406446:android:76d5b0128235afd7503abf",
+        "android_client_info": {
+          "package_name": "com.companyname.finalodevhazirlikmaui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5rg_WmAg4pnjzOZ7FYJBgOGydoEy6VLE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

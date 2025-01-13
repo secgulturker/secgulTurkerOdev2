@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalOdevHazirlikMaui.News"
+             Title="News">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryBlue">#1E3A8A</Color>
+            <Color x:Key="AccentBlue">#4F6DA0</Color>
+            <Color x:Key="BackgroundBlue">#F1F7FF</Color>
+            <Color x:Key="ShadowBlue">#C2D6FF</Color>
+            <Color x:Key="TextColor">#FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <RefreshView RefreshColor="{StaticResource PrimaryBlue}" Refreshing="LoadNews" x:Name="refreshView">
+
+        <Grid RowDefinitions="Auto,*" Padding="10" BackgroundColor="{StaticResource BackgroundBlue}">
+
+            <!-- Kategori Listesi -->
+            <CollectionView x:Name="lstKategori" Grid.Row="0"
+                            SelectionChanged="lstKategori_SelectionChanged"
+                            SelectionMode="Single" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="12"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="{StaticResource PrimaryBlue}" Padding="10" CornerRadius="20" HasShadow="True" BorderColor="{StaticResource AccentBlue}">
+                            <Label Text="{Binding Baslik}" FontSize="Medium" TextColor="{StaticResource TextColor}" HorizontalTextAlignment="Center"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Haber Listesi -->
+            <CollectionView x:Name="lstHaberler" Grid.Row="1"
+                            SelectionChanged="lstHaberler_SelectionChanged"
+                            SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="15" Margin="0,0,0,20" BackgroundColor="{StaticResource PrimaryBlue}" CornerRadius="20" HasShadow="True">
+                            <VerticalStackLayout>
+                                <Frame Padding="0" CornerRadius="10" IsClippedToBounds="True" HasShadow="False">
+                                    <Image Source="{Binding enclosure.link}" Aspect="AspectFill" HeightRequest="150" />
+                                </Frame>
+                                <Label Text="{Binding title}" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource TextColor}" Margin="0,10,0,0"/>
+                                <HorizontalStackLayout HorizontalOptions="Center">
+                                    <Label Text="{Binding author}" TextColor="{StaticResource TextColor}"/>
+                                    <Label Text="  |  " TextColor="{StaticResource TextColor}" />
+                                    <Label Text="{Binding pubDate}" TextColor="{StaticResource TextColor}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
+    </RefreshView>
+</ContentPage>
